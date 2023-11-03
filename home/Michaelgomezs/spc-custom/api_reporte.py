@@ -120,10 +120,10 @@ def obtener_id_formulario(email):
         email = session["user"].get("preferred_username")
         # Conecta a la base de datos MySQL (asegúrate de tener los datos de conexión configurados)
         conn = mysql.connector.connect(
-            host='Michaelgomezs.mysql.pythonanywhere-services.com',
-            user='Michaelgomezs',
-            password='Changuaslupe5w',
-            database='Michaelgomezs$spc'
+            host=os.environ.get('DB_HOST'),
+            user=os.environ.get('DB_USER'),
+            password=os.environ.get('DB_PASSWORD'),
+            database=os.environ.get('DB_NAME')
         )
 
         cursor = conn.cursor()
@@ -151,10 +151,10 @@ def obtener_id_formulario(email):
 def conectar_bd():
     try:
         conn = mysql.connector.connect(
-            host='Michaelgomezs.mysql.pythonanywhere-services.com',
-            user='Michaelgomezs',
-            password='Changuaslupe5w',
-            database='Michaelgomezs$spc'
+            host=os.environ.get('DB_HOST'),
+            user=os.environ.get('DB_USER'),
+            password=os.environ.get('DB_PASSWORD'),
+            database=os.environ.get('DB_NAME')
         )
         return conn
     except Exception as e:
